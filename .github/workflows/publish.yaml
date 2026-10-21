@@ -1,0 +1,41 @@
+name: Publish to pub.dev
+
+# pub.dev only accepts OIDC publishing from a pushed tag (not a manual run).
+# Release: bump pubspec version + CHANGELOG, commit, then
+#   git tag v0.1.1 && git push origin v0.1.1
+# Needs: first version published manually, and "Automated publishing"
+# enabled on pub.dev (repo Ravindra3764/degree_picker, tag pattern v{{version}}).
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: dart format --output=none --set-exit-if-changed .
+      - run: flutter analyze
+      - run: flutter test
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # OIDC token for pub.dev
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - uses: dart-lang/setup-dart@v1
+      - run: flutter pub get
+      - run: dart pub publish --dry-run
+      - run: dart pub publish --force

@@ -1,6 +1,6 @@
 name: degree_picker
 description: Searchable degree picker and education qualification dropdown for Flutter forms. 1000+ degrees, diplomas, master and PhD worldwide, offline JSON, bottom sheet or dialog.
-version: 0.2.0
+version: 0.1.0
 repository: https://github.com/Ravindra3764/degree_picker
 issue_tracker: https://github.com/Ravindra3764/degree_picker/issues
 topics:

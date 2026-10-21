@@ -1,0 +1,28 @@
+name: degree_picker
+description: A searchable degree picker form field for Flutter with a bundled, community-maintained JSON list of degrees worldwide. Shows a bottom sheet or dialog.
+version: 0.1.0
+repository: https://github.com/YOUR_USERNAME/degree_picker
+issue_tracker: https://github.com/YOUR_USERNAME/degree_picker/issues
+topics:
+  - picker
+  - education
+  - form
+  - widget
+  - search
+
+environment:
+  sdk: ^3.4.0
+  flutter: '>=3.22.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  assets:
+    - assets/degrees.json

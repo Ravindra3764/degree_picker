@@ -1,8 +1,21 @@
 # degree_picker
 
-A text-box style form field that opens a **searchable list of degrees**
-(B.Tech, MBA, Ph.D, ...) in a **bottom sheet** or **floating dialog**.
-Degrees live in a plain JSON file, so anyone can extend or replace the data.
+[![pub package](https://img.shields.io/pub/v/degree_picker.svg)](https://pub.dev/packages/degree_picker)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+Searchable **degree picker** and **education qualification dropdown** for Flutter forms.
+Pick from **1000+ degrees, diplomas, bachelor, master and PhD programs** (B.Tech, MBA, M.Sc, Ph.D, MBBS, LLB, ...)
+in a **bottom sheet** or **floating dialog**. Works offline, no API.
+
+## Features
+
+- Searchable `FormField` with validator support (`DegreePickerField`)
+- 1000+ degrees across 13 levels: certificate, diploma, bachelor, honours, master, doctorate and more
+- Smart search: abbreviations, aliases and punctuation (`btech`, `B.Tech`, `b tech`)
+- Level filter chips, custom entry ("Add my degree"), clear button
+- Bottom sheet or dialog, custom item builder
+- Plain JSON data, easy to extend or replace
+- Android, iOS, web, desktop
 
 ## Usage
 

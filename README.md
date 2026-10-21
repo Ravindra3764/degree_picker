@@ -35,7 +35,7 @@ final degree = await showDegreePicker(context, degrees: myList);
 | `allowCustom` | `false` | Let users add a degree not in the list |
 | `allowClear` | `false` | Clear button on the field |
 | `levels` | all | Restrict to certain `DegreeLevel`s |
-| `countries` | all | ISO codes; global degrees are always kept |
+| `countries` | all | ISO codes; untagged degrees are always kept (bundled data is untagged) |
 | `itemBuilder` | default tile | Fully custom row |
 | `autofocusSearch` | `false` | Open keyboard immediately |
 
@@ -51,7 +51,7 @@ DegreePickerField(
 
 ```json
 {
-  "version": 1,
+  "version": 2,
   "degrees": [
     {
       "id": "btech",
@@ -59,16 +59,15 @@ DegreePickerField(
       "short": "B.Tech",
       "level": "bachelor",
       "field": "Engineering",
-      "aliases": ["BTech"],
-      "countries": ["IN"]
+      "aliases": ["BTech"]
     }
   ]
 }
 ```
 
-`level`: `certificate | diploma | associate | bachelor | postgraduateDiploma | master | doctorate | professional | other`.
-`id` must be unique. `countries` is optional (empty = global).
+`level`: `certificate | vocational | foundation | diploma | associate | bachelor | honours | postgraduateDiploma | master | integratedMaster | doctorate | professional | postdoctoral | other`.
+`id` must be unique and never renamed (apps may have it saved). `countries` is optional and unused in the bundled data (empty = global); it still works for custom JSON.
 
 ## Contributing degrees
 
-Edit `assets/degrees.json` and open a PR. `flutter test` validates unique ids and the schema.
+Edit `assets/degrees.json` and open a PR. `flutter test` validates unique ids and the schema. See [CONTRIBUTING.md](CONTRIBUTING.md).

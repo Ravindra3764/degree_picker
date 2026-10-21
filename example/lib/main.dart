@@ -40,14 +40,15 @@ class _DemoState extends State<Demo> {
                 config: const DegreePickerConfig(allowClear: true),
               ),
               const SizedBox(height: 16),
-              DegreePickerField(
-                decoration: const InputDecoration(
-                  labelText: 'Degree (dialog, India, custom allowed)',
+              const DegreePickerField(
+                decoration: InputDecoration(
+                  labelText:
+                      'Degree (dialog, master/doctorate, custom allowed)',
                   border: OutlineInputBorder(),
                 ),
-                config: const DegreePickerConfig(
+                config: DegreePickerConfig(
                   mode: DegreePickerMode.dialog,
-                  countries: {'IN'},
+                  levels: {DegreeLevel.master, DegreeLevel.doctorate},
                   allowCustom: true,
                 ),
               ),

@@ -67,8 +67,10 @@ void main() {
 
   test('config filters by level and country', () {
     const all = [
-      Degree(id: 'a', name: 'A', level: DegreeLevel.bachelor, countries: ['IN']),
-      Degree(id: 'b', name: 'B', level: DegreeLevel.bachelor, countries: ['US']),
+      Degree(
+          id: 'a', name: 'A', level: DegreeLevel.bachelor, countries: ['IN']),
+      Degree(
+          id: 'b', name: 'B', level: DegreeLevel.bachelor, countries: ['US']),
       Degree(id: 'c', name: 'C', level: DegreeLevel.master),
     ];
     const cfg = DegreePickerConfig(

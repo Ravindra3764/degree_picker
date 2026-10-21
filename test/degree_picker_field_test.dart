@@ -43,7 +43,8 @@ void main() {
   testWidgets('bottom sheet: search and select', (tester) async {
     final picked = await _pickWith(tester, DegreePickerMode.bottomSheet);
     expect(picked?.id, 'mba');
-    expect(find.text('Master of Business Administration (MBA)'), findsOneWidget);
+    expect(
+        find.text('Master of Business Administration (MBA)'), findsOneWidget);
   });
 
   testWidgets('dialog: search and select', (tester) async {

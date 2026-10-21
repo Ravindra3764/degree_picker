@@ -11,8 +11,17 @@ enum DegreeLevel {
   /// Associate degrees.
   associate('Associate'),
 
+  /// Foundation / bridging programs.
+  foundation('Foundation'),
+
+  /// Vocational and technical qualifications.
+  vocational('Vocational'),
+
   /// Bachelor degrees.
   bachelor('Bachelor'),
+
+  /// Bachelor (Honours) degrees.
+  honours('Honours'),
 
   /// Postgraduate diplomas / certificates.
   postgraduateDiploma('Postgraduate Diploma'),
@@ -20,8 +29,14 @@ enum DegreeLevel {
   /// Master degrees.
   master('Master'),
 
+  /// Combined bachelor + master programs (MEng, MSci, dual degrees).
+  integratedMaster('Integrated Master'),
+
   /// Doctorates (PhD, EdD, ...).
   doctorate('Doctorate'),
+
+  /// Post-doctoral qualifications (Habilitation, D.Sc, ...).
+  postdoctoral('Postdoctoral'),
 
   /// Professional degrees (MD, JD, ...).
   professional('Professional'),

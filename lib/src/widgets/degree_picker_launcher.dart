@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/degree.dart';
 import 'degree_picker_config.dart';
+import 'degree_picker_style.dart';
 import 'degree_search_panel.dart';
 
 /// Opens the picker (bottom sheet or dialog depending on [config]) and
@@ -16,6 +17,7 @@ Future<Degree?> showDegreePicker(
   DegreePickerConfig config = const DegreePickerConfig(),
 }) {
   final items = config.filter(degrees);
+  final style = DegreePickerStyle.resolve(context, config.style);
 
   Widget panel(BuildContext ctx) => DegreeSearchPanel(
         degrees: items,
@@ -30,7 +32,11 @@ Future<Degree?> showDegreePicker(
         context: context,
         isScrollControlled: true,
         useSafeArea: true,
-        showDragHandle: true,
+        showDragHandle: false,
+        backgroundColor: style.backgroundColor,
+        shape: style.shape,
+        elevation: style.elevation,
+        barrierColor: style.barrierColor,
         builder: (ctx) {
           final mq = MediaQuery.of(ctx);
           return Padding(
@@ -38,7 +44,13 @@ Future<Degree?> showDegreePicker(
             child: SizedBox(
               height: (mq.size.height - mq.viewInsets.bottom) *
                   config.sheetHeightFactor,
-              child: panel(ctx),
+              child: Column(
+                children: [
+                  if (style.showDragHandle ?? true)
+                    _DragHandle(color: style.dragHandleColor),
+                  Expanded(child: panel(ctx)),
+                ],
+              ),
             ),
           );
         },
@@ -46,8 +58,12 @@ Future<Degree?> showDegreePicker(
     case DegreePickerMode.dialog:
       return showDialog<Degree>(
         context: context,
+        barrierColor: style.barrierColor,
         builder: (ctx) => Dialog(
           clipBehavior: Clip.antiAlias,
+          backgroundColor: style.backgroundColor,
+          shape: style.shape,
+          elevation: style.elevation,
           child: ConstrainedBox(
             constraints: BoxConstraints(
               maxWidth: config.dialogMaxWidth,
@@ -58,4 +74,24 @@ Future<Degree?> showDegreePicker(
         ),
       );
   }
+}
+
+class _DragHandle extends StatelessWidget {
+  const _DragHandle({this.color});
+
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.only(top: 12),
+        child: Container(
+          width: 32,
+          height: 4,
+          decoration: BoxDecoration(
+            color: color ??
+                Theme.of(context).colorScheme.onSurfaceVariant.withAlpha(100),
+            borderRadius: BorderRadius.circular(2),
+          ),
+        ),
+      );
 }

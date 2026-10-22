@@ -24,6 +24,7 @@ class DegreePickerField extends StatefulWidget {
     this.validator,
     this.autovalidateMode,
     this.decoration = const InputDecoration(labelText: 'Degree'),
+    this.textStyle,
     this.config = const DegreePickerConfig(),
     this.enabled = true,
     this.onLoadError,
@@ -53,7 +54,10 @@ class DegreePickerField extends StatefulWidget {
   /// Look of the box. Defaults to a labelled field.
   final InputDecoration decoration;
 
-  /// Picker behaviour and texts.
+  /// Text style of the selected degree shown in the field.
+  final TextStyle? textStyle;
+
+  /// Picker behaviour, texts and look (see [DegreePickerConfig.style]).
   final DegreePickerConfig config;
 
   /// Disables interaction.
@@ -146,7 +150,7 @@ class _DegreePickerFieldState extends State<DegreePickerField> {
           suffixIcon: showClear
               ? IconButton(
                   icon: const Icon(Icons.close),
-                  tooltip: 'Clear',
+                  tooltip: cfg.clearTooltip,
                   onPressed: () => _set(state, null),
                 )
               : widget.decoration.suffixIcon ??
@@ -160,6 +164,7 @@ class _DegreePickerFieldState extends State<DegreePickerField> {
             isEmpty: value == null,
             child: Text(
               value?.displayName ?? '',
+              style: widget.textStyle,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),

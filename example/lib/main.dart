@@ -52,6 +52,40 @@ class _DemoState extends State<Demo> {
                   allowCustom: true,
                 ),
               ),
+              const SizedBox(height: 16),
+              DegreePickerField(
+                decoration: const InputDecoration(
+                  labelText: 'Degree (custom style)',
+                  border: OutlineInputBorder(),
+                ),
+                textStyle: const TextStyle(fontWeight: FontWeight.w600),
+                config: DegreePickerConfig(
+                  title: 'Your qualification',
+                  style: DegreePickerStyle(
+                    backgroundColor: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(28)),
+                    ),
+                    titleStyle: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigo,
+                    ),
+                    selectedColor: Colors.indigo,
+                    selectedTileColor: Colors.indigo.shade50,
+                    showDividers: true,
+                    searchDecoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.indigo.shade50,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(24),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               const SizedBox(height: 24),
               FilledButton(
                 onPressed: () => _formKey.currentState!.validate(),

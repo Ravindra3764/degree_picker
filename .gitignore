@@ -5,3 +5,16 @@ pubspec.lock
 .idea/
 *.iml
 .DS_Store
+
+# example: only lib/ + pubspec are published; platform runners stay local for testing
+example/ios/
+example/android/
+example/macos/
+example/web/
+example/linux/
+example/windows/
+example/.metadata
+example/README.md
+example/analysis_options.yaml
+example/test/
+example/.gitignore

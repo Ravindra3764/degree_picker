@@ -60,6 +60,58 @@ DegreePickerField(
 );
 ```
 
+## Customize the look
+
+Nothing to configure by default: the picker follows your app `Theme`
+(light/dark, Material 3). To change anything, pass a `DegreePickerStyle`.
+Every field is optional.
+
+```dart
+DegreePickerField(
+  textStyle: const TextStyle(fontWeight: FontWeight.w600), // selected value
+  config: DegreePickerConfig(
+    title: 'Your qualification',
+    style: DegreePickerStyle(
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      selectedTileColor: Colors.indigo.shade50,
+      selectedColor: Colors.indigo,
+      showDividers: true,
+    ),
+  ),
+)
+```
+
+Style every picker in the app once with a theme extension:
+
+```dart
+MaterialApp(
+  theme: ThemeData(
+    extensions: [
+      DegreePickerTheme(
+        style: DegreePickerStyle(selectedTileColor: Colors.indigo.shade50),
+      ),
+    ],
+  ),
+)
+```
+
+A style on one `DegreePickerConfig` overrides the app-wide theme.
+
+| Group | `DegreePickerStyle` fields |
+|---|---|
+| Sheet / dialog | `backgroundColor`, `shape`, `elevation`, `barrierColor`, `showDragHandle`, `dragHandleColor` |
+| Title | `titleStyle`, `titlePadding` |
+| Search box | `searchDecoration`, `searchTextStyle`, `searchPadding` |
+| Rows | `itemTitleStyle`, `itemSubtitleStyle`, `itemPadding`, `selectedColor`, `selectedTileColor`, `selectedIcon`, `showDividers`, `dividerColor` |
+| Level chips | `chipTheme`, `chipsPadding` |
+| Other | `emptyTextStyle`, `customIcon` |
+
+Texts live in `DegreePickerConfig`: `title`, `searchHint`, `emptyText`,
+`customOptionPrefix`, `clearTooltip`. Need a fully custom row? Use `itemBuilder`.
+
 ## JSON format
 
 ```json

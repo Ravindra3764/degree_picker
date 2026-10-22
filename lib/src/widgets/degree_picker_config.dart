@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../models/degree.dart';
+import 'degree_picker_style.dart';
 
 /// How the picker is presented when the field is tapped.
 enum DegreePickerMode {
@@ -28,6 +29,7 @@ class DegreePickerConfig {
     this.searchHint = 'Search degrees',
     this.emptyText = 'No degrees found',
     this.customOptionPrefix = 'Use',
+    this.clearTooltip = 'Clear',
     this.showLevelFilter = true,
     this.allowCustom = false,
     this.allowClear = false,
@@ -38,6 +40,7 @@ class DegreePickerConfig {
     this.dialogMaxWidth = 480,
     this.dialogHeight = 560,
     this.sheetHeightFactor = 0.85,
+    this.style,
   });
 
   /// Bottom sheet or dialog.
@@ -54,6 +57,9 @@ class DegreePickerConfig {
 
   /// Prefix of the "use what I typed" row, e.g. `Use "Foo"`.
   final String customOptionPrefix;
+
+  /// Tooltip of the clear buttons (field and search box).
+  final String clearTooltip;
 
   /// Show level chips (Bachelor, Master, ...).
   final bool showLevelFilter;
@@ -85,6 +91,10 @@ class DegreePickerConfig {
 
   /// Bottom sheet height as a fraction of the available screen height.
   final double sheetHeightFactor;
+
+  /// Colors, shapes and text styles. `null` = follow the app theme (or the
+  /// app-wide [DegreePickerTheme]).
+  final DegreePickerStyle? style;
 
   /// Applies [levels] and [countries] filters.
   List<Degree> filter(List<Degree> all) {

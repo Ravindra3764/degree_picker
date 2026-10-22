@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.indigo),
         home: const Demo(),
       );
@@ -42,8 +43,7 @@ class _DemoState extends State<Demo> {
               const SizedBox(height: 16),
               const DegreePickerField(
                 decoration: InputDecoration(
-                  labelText:
-                      'Degree (dialog, master/doctorate, custom allowed)',
+                  labelText: 'Degree (dialog, master/doctorate)',
                   border: OutlineInputBorder(),
                 ),
                 config: DegreePickerConfig(

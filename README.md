@@ -7,6 +7,13 @@ Searchable **degree picker** and **education qualification dropdown** for Flutte
 Pick from **1000+ degrees, diplomas, bachelor, master and PhD programs** (B.Tech, MBA, M.Sc, Ph.D, MBBS, LLB, ...)
 in a **bottom sheet** or **floating dialog**. Works offline, no API.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Ravindra3764/degree_picker/main/screenshots/2_sheet.png" width="23%" alt="Bottom sheet with level filter chips">
+  <img src="https://raw.githubusercontent.com/Ravindra3764/degree_picker/main/screenshots/3_search.png" width="23%" alt="Search by abbreviation, e.g. b.tech">
+  <img src="https://raw.githubusercontent.com/Ravindra3764/degree_picker/main/screenshots/4_dialog.png" width="23%" alt="Dialog mode">
+  <img src="https://raw.githubusercontent.com/Ravindra3764/degree_picker/main/screenshots/5_custom_style.png" width="23%" alt="Custom styled picker">
+</p>
+
 ## Features
 
 - Searchable `FormField` with validator support (`DegreePickerField`)

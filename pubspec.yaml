@@ -10,6 +10,16 @@ topics:
   - dropdown
   - search
 
+screenshots:
+  - description: Searchable bottom sheet with level filter chips.
+    path: screenshots/2_sheet.png
+  - description: Smart search by abbreviation, alias or name.
+    path: screenshots/3_search.png
+  - description: Dialog mode, limited to master and doctorate levels.
+    path: screenshots/4_dialog.png
+  - description: Fully custom styled picker.
+    path: screenshots/5_custom_style.png
+
 environment:
   sdk: ^3.4.0
   flutter: '>=3.22.0'

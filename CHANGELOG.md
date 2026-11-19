@@ -1,3 +1,7 @@
+## 0.1.1
+
+- Silence the `package:flutter/material.dart` deprecation reported on Flutter 3.47+ (pub.dev static analysis). Minimum Flutter stays 3.22; migration to `package:material_ui` will come with a future SDK bump.
+
 ## 0.1.0
 
 - Initial release: `DegreePickerField`, bottom sheet / dialog modes, level filter chips, custom entry, custom JSON support.

@@ -1,3 +1,6 @@
+// Flutter >=3.47 deprecates this library in favour of package:material_ui,
+// which needs Flutter >=3.47. Kept until the minimum SDK is raised.
+// ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 
 /// Visual customisation of the picker (sheet, dialog, search box, rows, chips).
